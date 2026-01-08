@@ -1,57 +1,118 @@
-# React + TypeScript + Vite
+# 在线实用计算工具站 (EasyCalc)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[![React](https://img.shields.io/badge/React-18-blue)](https://reactjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-blue)](https://www.typescriptlang.org/)
+[![Vite](https://img.shields.io/badge/Vite-5-646CFF)](https://vitejs.dev/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-3-38B2AC)](https://tailwindcss.com/)
 
-Currently, two official plugins are available:
+一个功能丰富、设计现代的在线计算工具集合站。致力于为用户提供“简单、好用、免费”的计算服务，覆盖工资、日期、学习、程序员、生活、数学等多个高频场景。
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+👉 **纯前端静态站，无后端依赖，加载速度快，隐私安全有保障。**
 
-## Expanding the ESLint configuration
+## ✨ 核心功能
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+本项目包含 6 大类目，共计 20+ 个实用工具：
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+### 💰 工资与收入计算
+- **税后工资计算器**：支持 2024 最新个税算法。
+- **年终奖个税计算器**：单独计税/合并计税一键对比。
+- **五险一金计算器**：支持自定义缴纳比例。
+- **加班费计算器**：依据劳动法计算工作日/周末/节假日加班费。
+- **打工跑分 (牛马指数)**：趣味评估工作性价比与购买力。
+
+### 📅 日期时间计算
+- **日期差计算**：计算两个日期相隔多少天。
+- **工作日计算**：自动排除周末的有效工作日天数。
+- **日期推算**：计算几百天后是几月几号。
+- **在线倒计时**：精确到秒的目标日倒计时。
+
+### 🎓 学生与考试工具
+- **GPA 计算器**：支持标准 4.0 算法，多课程录入。
+- **加权成绩计算**：适用于计算期末综合成绩。
+- **目标分数反推**：帮你算出期末考多少分才能不挂科。
+
+### 👨‍💻 程序员工具
+- **时间戳转换**：Unix 时间戳与北京时间互转 (秒/毫秒)。
+- **JSON 格式化**：美化、压缩、语法校验。
+- **Base64 编解码**：支持中文的 UTF-8 安全编解码。
+
+### ❤️ 生活常用计算
+- **BMI 计算器**：中国成人标准身体质量指数评估。
+- **面积计算器**：矩形、圆形、三角形、梯形、平行四边形。
+- **卡路里计算**：基于 BMR/TDEE 的每日热量建议。
+- **电费估算**：家用电器耗电成本计算。
+
+### 🧮 数学与科学计算
+- **科学计算器**：支持三角函数、对数、指数等复杂运算。
+- **一元二次方程**：快速求解实根与判别式。
+- **质因数分解**：大整数分解。
+- **GCD & LCM**：最大公约数与最小公倍数。
+
+## 🛠️ 技术栈
+
+本项目采用现代化的前端技术栈构建，确保了极佳的开发体验和运行性能：
+
+- **核心框架**: [React 18](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/)
+- **构建工具**: [Vite](https://vitejs.dev/) (极速冷启动与热更新)
+- **样式方案**: [Tailwind CSS](https://tailwindcss.com/) (原子化 CSS，响应式设计)
+- **路由管理**: [React Router v6](https://reactrouter.com/)
+- **SEO 优化**: [React Helmet Async](https://github.com/staylor/react-helmet-async) (动态管理 Title/Meta)
+- **图标库**: [Lucide React](https://lucide.dev/)
+
+## 🚀 快速开始
+
+### 环境要求
+- Node.js >= 16
+- npm 或 yarn / pnpm
+
+### 安装与运行
+
+1.  **克隆项目**
+    ```bash
+    git clone https://github.com/your-username/easy-calc.git
+    cd easy-calc
+    ```
+
+2.  **安装依赖**
+    ```bash
+    npm install
+    ```
+
+3.  **启动开发服务器**
+    ```bash
+    npm run dev
+    ```
+    打开浏览器访问 `http://localhost:5173` 即可查看效果。
+
+4.  **构建生产版本**
+    ```bash
+    npm run build
+    ```
+    构建产物位于 `dist` 目录，可直接部署到任何静态托管服务（如 Vercel, Netlify, Nginx）。
+
+## 📂 项目结构
+
+```
+src/
+├── assets/          # 静态资源
+├── components/      # 公共组件 (SEO, Layout, Header...)
+├── pages/           # 页面组件
+│   ├── date/        # 日期类工具
+│   ├── dev/         # 程序员工具
+│   ├── life/        # 生活类工具
+│   ├── math/        # 数学类工具
+│   ├── salary/      # 工资类工具
+│   ├── student/     # 学生类工具
+│   ├── Home.tsx     # 首页
+│   └── ...          # 关于/隐私/条款等页面
+├── App.tsx          # 路由配置
+└── main.tsx         # 入口文件
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 📄 隐私与协议
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+本项目为纯静态站点，所有计算逻辑均在**用户浏览器本地**完成，不会上传任何个人数据到服务器，请放心使用。
 
-export default tseslint.config({
-  extends: [
-    // other configs...
-    // Enable lint rules for React
-    reactX.configs['recommended-typescript'],
-    // Enable lint rules for React DOM
-    reactDom.configs.recommended,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+---
+
+© 2026 在线实用计算工具站. All rights reserved.
