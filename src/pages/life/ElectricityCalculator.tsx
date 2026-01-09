@@ -4,7 +4,7 @@ import { ToolLayout, SEO } from '../../components';
 const ElectricityCalculator: React.FC = () => {
   const [power, setPower] = useState<number | ''>('');
   const [hours, setHours] = useState<number | ''>('');
-  const [price, setPrice] = useState<number | ''>('0.6');
+  const [price, setPrice] = useState<number | ''>(0.6);
   const [result, setResult] = useState<{daily: number, monthly: number, yearly: number} | null>(null);
 
   const calculate = () => {
